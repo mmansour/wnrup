@@ -5,6 +5,8 @@
 *.gif
 *.log
 *.swp
+*.sql
+*.db
 .idea/
 github-public.rtf
 manage.py
