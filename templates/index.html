@@ -9,5 +9,9 @@
 {% endblock %}
 
 {% block main %}
-{% trans "This is the homepage." %}
+<ul></ul>
+{% for e in events %}
+    <li>{{ e.event }} {{ e.location }} {{ e.start_time }} {{ end_time }}</li>
+{% endfor %}
+</uL>
 {% endblock %}
