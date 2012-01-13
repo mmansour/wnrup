@@ -15,6 +15,7 @@ settings.py
 local_settings.py
 forum_settings.py
 urls.py
+docs/
 .idea/
 log/
 site_media/
