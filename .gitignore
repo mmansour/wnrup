@@ -18,6 +18,6 @@ urls.py
 docs/
 .idea/
 log/
-site_media/
-static/
+site_media/images/
+static/images/
 
