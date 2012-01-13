@@ -3,8 +3,9 @@ from django.contrib import admin
 from mezzanine.core.admin import DisplayableAdmin
 
 class EventAdmin(admin.ModelAdmin):
-    class Media:
-        js = ("/static/js/MyDateTimeShortcuts.js",)
+    pass
+#    class Media:
+#        js = ("/static/js/MyDateTimeShortcuts.js",)
 
 admin.site.register(Event, EventAdmin)
 
