@@ -24,7 +24,7 @@ class Micropage(Displayable):
         return self.title
 
 class Event(models.Model):
-    date = models.DateField(verbose_name="Date")
+    event_date = models.DateField(verbose_name="Date", blank=True, null=True)
     event = models.CharField(max_length=400, verbose_name="Event")
     location = models.CharField(max_length=400, verbose_name="Location")
     start_time = models.TimeField(verbose_name="Start Time")

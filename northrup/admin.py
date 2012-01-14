@@ -20,7 +20,8 @@ class MicropageAdmin(DisplayableAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('event', 'location','event_date', 'start_time', 'end_time',)
+    list_editable = ('event_date', 'start_time', 'end_time',)
 
 admin.site.register(Micropage, MicropageAdmin)
 admin.site.register(Event, EventAdmin)
