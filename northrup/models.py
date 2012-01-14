@@ -2,6 +2,11 @@ from django.db import models
 from mezzanine.core.models import Displayable, RichTextField
 
 class Micropage(Displayable):
+    PAGETYPE_CHOICES = (
+        (u'Subpage', u'Subpage'),
+        (u'Home', u'Home'),
+    )
+    page_type = models.CharField(max_length=8, choices=PAGETYPE_CHOICES, default='Subpage')
     header_top_left = RichTextField(blank=True, verbose_name="Header Top Left")
     header_top_right = RichTextField(blank=True, verbose_name="Header Top Right")
     header_middle_left = RichTextField(blank=True, verbose_name="Header Bottom Left")
@@ -11,6 +16,8 @@ class Micropage(Displayable):
     body_middle_column_top = RichTextField(blank=True, verbose_name="Body Column Middle Top")
     body_middle_column_bottom = RichTextField(blank=True, verbose_name="Body Column Middle Bottom")
     body_right_column = RichTextField(blank=True, verbose_name="Body Column Right Bottom")
+    footer = RichTextField(blank=True, verbose_name="Footer")
+
 
     def __unicode__(self):
         return self.title

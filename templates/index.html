@@ -8,6 +8,35 @@
 {% trans "Home" %}
 {% endblock %}
 
+{% block header_top_left %}
+{{ home.header_top_left|safe }}
+{% endblock %}
+
+{% block header_top_right %}
+{{ home.header_top_right|safe }}
+{% endblock %}
+
+{% block header_middle_left %}
+{{ home.header_middle_left|safe }}
+{% endblock %}
+
+{% block header_middle_right %}
+{{ home.header_middle_right|safe }}
+{% endblock %}
+
+
+{% block body_left_col_top %}
+{{ home.body_left_column_top|safe }}
+{% endblock %}
+
+{% block body_left_col_bottom %}
+{{ home.body_left_column_bottom|safe }}
+{% endblock %}
+
+{% block main_top %}
+{{ home.body_middle_column_top|safe }}
+{% endblock %}
+
 {% block main %}
 <table>
 <tr><th>Date</th><th>Event</th><th>Location</th><th>Time</th></tr>
@@ -15,4 +44,12 @@
 <tr><td>{{ e.date }}</td><td>{{ e.event }}</td><td>{{ e.location }}</td><td>{{ e.start_time }} - {{ e.end_time }}</td></tr>
 {% endfor %}
 </table>
+{% endblock %}
+
+{% block main_bottom %}
+{{ home.body_middle_column_bottom|safe }}
+{% endblock %}
+
+{% block body_right_col %}
+{{ home.body_right_column|safe }}
 {% endblock %}

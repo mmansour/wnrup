@@ -21,15 +21,18 @@
 
 </head>
 <body id="{% block body_id %}{% endblock %}">
-
 {% if settings.SITE_TITLE or settings.SITE_TAGLINE %}
 <div id="grid-header">
-    {% if settings.SITE_TITLE %}
-    <h1>{{ settings.SITE_TITLE }}</h1>
-    {% endif %}
-    {% if settings.SITE_TAGLINE %}
-    <h2>{{ settings.SITE_TAGLINE }}</h2>
-    {% endif %}
+        {% block header_top_left %}{% endblock %}
+        {% block header_top_right %}{% endblock %}
+        {% block header_middle_left %}{% endblock %}
+        {% block header_middle_right %}{% endblock %}
+{#    {% if settings.SITE_TITLE %}#}
+{#    <h1>{{ settings.SITE_TITLE }}</h1>#}
+{#    {% endif %}#}
+{#    {% if settings.SITE_TAGLINE %}#}
+{#    <h2>{{ settings.SITE_TAGLINE }}</h2>#}
+{#    {% endif %}#}
 </div>
 {% endif %}
 
@@ -40,7 +43,9 @@
 <div class="container_12 clearfix">
 
     <div id="grid-left" class="grid_3 grid">
-        {% page_menu "pages/menus/tree.html" %}
+        {% block body_left_col_top %}{% endblock %}
+        {% block body_left_col_bottom %}{% endblock %}
+{#        {% page_menu "pages/menus/tree.html" %}#}
     </div>
 
     <div id="grid-middle" class="grid_6 grid">
@@ -51,24 +56,27 @@
                     {% page_menu "pages/menus/breadcrumb.html" %}
                 {% endblock %}
             </div>
+            {% block main_top %}{% endblock %}
             {% block main %}{% endblock %}
+            {% block main_bottom %}{% endblock %}
         </div>
     </div>
 
     <div id="grid-right" class="grid_3 grid">
-        {% include "includes/search.html" %}
+        {% block body_right_col %}{% endblock %}
+{#        {% include "includes/search.html" %}#}
 {#        {% block right_panel %}#}
 {#            {% if "mezzanine.twitter"|is_installed %}#}
 {#            {% include "twitter/tweets.html" %}#}
 {#            {% endif %}#}
 {#        {% endblock %}#}
-        <p class="mezzanine">
-            {% trans "Powered by" %} 
-            <a href="http://mezzanine.jupo.org">Mezzanine</a><br />
-            <a href="{% url set_device "mobile" %}?next={{ request.path }}">
-                {% trans "View Mobile Site." %}
-            </a>
-        </p>
+{#        <p class="mezzanine">#}
+{#            {% trans "Powered by" %} #}
+{#            <a href="http://mezzanine.jupo.org">Mezzanine</a><br />#}
+{#            <a href="{% url set_device "mobile" %}?next={{ request.path }}">#}
+{#                {% trans "View Mobile Site." %}#}
+{#            </a>#}
+{#        </p>#}
     </div>
 
 </div>
