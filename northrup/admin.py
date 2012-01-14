@@ -1,13 +1,15 @@
-from northrup.models import Homepage, Event
+from northrup.models import Micropage, Event
 from django.contrib import admin
 from mezzanine.core.admin import DisplayableAdmin
 
-class HomepageAdmin(DisplayableAdmin):
+class MicropageAdmin(DisplayableAdmin):
 
     fieldsets = [
         ("Title",               {'fields': ['title']}),
         ("Published Date",               {'fields': ['publish_date']}),
         ("Published Status",               {'fields': ['status']}),
+        ("Header",               {'fields': ['header_top_left', 'header_top_right','header_middle_left', 'header_middle_right']}),
+        ("Body",               {'fields': ['body_left_column_top', 'body_left_column_bottom','body_middle_column_top', 'body_middle_column_bottom','body_right_column']}),
     ]
 
     list_display = ('title', 'status', 'publish_date',)
@@ -15,49 +17,6 @@ class HomepageAdmin(DisplayableAdmin):
 class EventAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Homepage, HomepageAdmin)
+admin.site.register(Micropage, MicropageAdmin)
 admin.site.register(Event, EventAdmin)
 
-#class ChoiceInline(admin.TabularInline):
-#    model = Choice
-#    extra = 2
-
-#class BattleAdmin(DisplayableAdmin):
-#
-##    fieldsets = battles_fieldsets
-#    fieldsets = [
-#        ("Title",               {'fields': ['title']}),
-#        ("Thumbnail",               {'fields': ['video_thumbnail']}),
-#        ("Cast Members",               {'fields': ['cast_members']}),
-#        ("Published Date",               {'fields': ['publish_date']}),
-#        ("Published Status",               {'fields': ['status']}),
-#        ("Type of Video",               {'fields': ['is_homepage', 'is_featured', 'is_bts', 'is_facts', 'is_other']}),
-#        ("Video URL",               {'fields': ['video', 'video_youtube_id']}),
-#        ("Video Subnav Links",               {'fields': ['bts_link', 'facts_link']}),
-#        ("Facts",               {'fields': ['facts']}),
-#        ("Poll Question",               {'fields': ['question']}),
-#    ]
-#
-#    inlines = [ChoiceInline]
-#    list_display = ('title', 'status', 'is_homepage', 'is_featured', 'is_bts', 'is_facts', 'is_other', 'question', 'publish_date',)
-#    list_editable = ('status','is_homepage', 'is_featured', 'is_bts', 'is_facts', 'is_other')
-#    list_filter = ['status','publish_date', 'is_featured', 'is_homepage']
-#    search_fields = ['title','question']
-#    date_hierarchy = 'publish_date'
-
-#class AboutAdmin(DisplayableAdmin):
-#    #    fieldsets = battles_fieldsets
-#    fieldsets = [
-#        ("Title",               {'fields': ['title']}),
-#        ("Published Date",               {'fields': ['publish_date']}),
-#        ("Published Status",               {'fields': ['status']}),
-#        ("About",               {'fields': ['about']}),
-#    ]
-#
-#    list_display = ('title', 'status', 'publish_date',)
-
-
-#admin.site.register(Battle, BattleAdmin)
-#admin.site.register(CastMember)
-#admin.site.register(AboutPage, AboutAdmin)
-  
