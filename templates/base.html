@@ -82,12 +82,13 @@
 </div>
 
 <div id="grid-bottom">
-    <div class="container_12 clearfix">
-        <div class="grid_3">&nbsp;</div>
-        <div class="grid_6 push_3 grid">
-            {% page_menu "pages/menus/footer.html" %}
-        </div>
-    </div>
+    {% block footer %}{% endblock %}
+{#    <div class="container_12 clearfix">#}
+{#        <div class="grid_3">&nbsp;</div>#}
+{#        <div class="grid_6 push_3 grid">#}
+{#            {% page_menu "pages/menus/footer.html" %}#}
+{#        </div>#}
+{#    </div>#}
 </div>
 
 {% include "includes/footer_scripts.html" %}
