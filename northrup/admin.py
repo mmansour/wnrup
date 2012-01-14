@@ -1,12 +1,21 @@
-from northrup.models import Event
+from northrup.models import Homepage, Event
 from django.contrib import admin
 from mezzanine.core.admin import DisplayableAdmin
 
+class HomepageAdmin(DisplayableAdmin):
+
+    fieldsets = [
+        ("Title",               {'fields': ['title']}),
+        ("Published Date",               {'fields': ['publish_date']}),
+        ("Published Status",               {'fields': ['status']}),
+    ]
+
+    list_display = ('title', 'status', 'publish_date',)
+
 class EventAdmin(admin.ModelAdmin):
     pass
-#    class Media:
-#        js = ("/static/js/MyDateTimeShortcuts.js",)
 
+admin.site.register(Homepage, HomepageAdmin)
 admin.site.register(Event, EventAdmin)
 
 #class ChoiceInline(admin.TabularInline):

@@ -18,6 +18,7 @@ urls.py
 docs/
 .idea/
 log/
+migrations/
 site_media/images/
 static/images/
 
