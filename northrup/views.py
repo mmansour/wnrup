@@ -8,7 +8,7 @@ logger = logging.getLogger("westernnorthrup.custom")
 def home(request):
     try:
         home = get_object_or_404(Micropage, page_type='Home')
-        events = Event.objects.all().order_by('-event_date')
+        events = Event.objects.all().order_by('event_date')
         return render_to_response('index.html',{'home':home, 'events': events,},
                                   context_instance=RequestContext(request))
     except Exception, e:
