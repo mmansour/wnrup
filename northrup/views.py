@@ -1,10 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponse, HttpResponsePermanentRedirect
 from django.template import RequestContext
-from django.core import serializers
-from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
-from django.utils import simplejson
-from mezzanine.utils.views import paginate
 from northrup.models import Micropage, Event
 import logging
 
@@ -17,4 +12,13 @@ def home(request):
         return render_to_response('index.html',{'home':home, 'events': events,},
                                   context_instance=RequestContext(request))
     except Exception, e:
-        logger.error('Error in view: about: {0}'.format(e))
+        logger.error('Error in view: home: {0}'.format(e))
+
+
+def event_details(request):
+    try:
+        home = get_object_or_404(Micropage, page_type='Home')
+        return render_to_response('event-details.html',{'home':home,},
+                                  context_instance=RequestContext(request))
+    except Exception, e:
+        logger.error('Error in view: event_details: {0}'.format(e))
