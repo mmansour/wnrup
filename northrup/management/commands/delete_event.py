@@ -10,7 +10,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             logger.debug('Starting deletion of expired events.')
-            logger.debug('Datetime now {0}'.format(datetime.now()))
             expired_events = Event.objects.filter(event_date__lt=datetime.now())
             for ee in expired_events:
                 logger.debug('Deleting Expired Events {0} Date {1}'.format(ee.event, ee.event_date))
